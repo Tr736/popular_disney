@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "D53CA1DB-C203-48F3-8727-9271DD0B5622",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:PopularDisney.xcodeproj",
+        "identifier" : "2626C75A362AEF22E145AEA1",
+        "name" : "PopularDisneyKitTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:PopularDisney.xcodeproj",
+        "identifier" : "56382DFE834E045AF99DEC81",
+        "name" : "PopularDisneyTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:PopularDisney.xcodeproj",
+        "identifier" : "2AA85F3FD87DC1552450F80D",
+        "name" : "PopularDisneyUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
