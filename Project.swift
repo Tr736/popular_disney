@@ -25,9 +25,6 @@ let localHelper = LocalHelper(name: "MyPlugin")
 
 let project = Project.app(name: "PopularDisney",
                           platform: .iOS,
-                          dependencies: [
-                              .external(name: "Nuke"),
-                              .external(name: "NukeUI"),
-                          ],
+                          dependencies: [],
                           additionalTargets: ["PopularDisneyKit",
                                               "PopularDisneyUI"])

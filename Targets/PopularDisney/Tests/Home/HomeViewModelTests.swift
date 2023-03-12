@@ -12,16 +12,15 @@ final class HomeViewModelTests: XCTestCase {
     }
 
     func test_FetchCharacters_expectOne() async throws {
-
         let character = CharactersResponse.CharactersData(id: 1,
                                                           films: [],
                                                           parkAttractions: [],
                                                           imageUrl: URL(string: "https://www.google.com")!,
                                                           name: "Mickey")
         dataProvider = HomeDataProviderMock(characters:
-                                                [
-                                                    character,
-                                                ])
+            [
+                character,
+            ])
         sut = HomeViewModel(dataProvider: dataProvider)
         await sut.fetchCharacters()
 
@@ -32,7 +31,6 @@ final class HomeViewModelTests: XCTestCase {
             )
             XCTAssertEqual(items.count, 1)
         })
-
     }
 
     func test_popularity_expectFour() {
@@ -42,9 +40,9 @@ final class HomeViewModelTests: XCTestCase {
                                                        imageUrl: URL(string: "https://www.google.com")!,
                                                        name: "Mickey")
         dataProvider = HomeDataProviderMock(characters:
-                                                [
-                                                    mickey,
-                                                ])
+            [
+                mickey,
+            ])
         sut = HomeViewModel(dataProvider: dataProvider)
 
         XCTAssertEqual(4, sut.popularity(mickey))
@@ -57,9 +55,9 @@ final class HomeViewModelTests: XCTestCase {
                                                        imageUrl: URL(string: "https://www.google.com")!,
                                                        name: "Mickey")
         dataProvider = HomeDataProviderMock(characters:
-                                                [
-                                                    mickey,
-                                                ])
+            [
+                mickey,
+            ])
         sut = HomeViewModel(dataProvider: dataProvider)
 
         XCTAssertEqual(0, sut.popularity(mickey))

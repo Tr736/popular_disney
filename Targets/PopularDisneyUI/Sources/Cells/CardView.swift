@@ -1,5 +1,6 @@
 import NukeUI
 import SwiftUI
+
 public struct CardView: View {
     private enum Constants {
         static let frame: CGFloat = Grid.x80

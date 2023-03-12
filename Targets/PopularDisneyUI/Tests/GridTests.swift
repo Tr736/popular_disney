@@ -1,5 +1,5 @@
-import XCTest
 @testable import PopularDisneyUI
+import XCTest
 
 final class GridTest: XCTestCase {
     private enum Constants {

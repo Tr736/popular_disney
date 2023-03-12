@@ -54,7 +54,10 @@ extension Project {
                              infoPlist: .default,
                              sources: ["Targets/\(name)/Sources/**"],
                              resources: [],
-                             dependencies: [])
+                             dependencies: [
+                                 .external(name: "Nuke"),
+                                 .external(name: "NukeUI"),
+                             ])
         let tests = Target(name: "\(name)Tests",
                            platform: platform,
                            product: .unitTests,

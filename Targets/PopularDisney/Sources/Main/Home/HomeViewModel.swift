@@ -21,7 +21,7 @@ final class HomeViewModel: HomeViewModelType {
 
     func fetchCharacters() async {
         do {
-            try await self.dataProvider.fetchCharacters(usingCache: true)
+            try await dataProvider.fetchCharacters(usingCache: true)
         } catch {
             // TODO: Error Handling
         }

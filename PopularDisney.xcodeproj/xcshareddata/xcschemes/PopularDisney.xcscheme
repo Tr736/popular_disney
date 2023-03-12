@@ -48,16 +48,6 @@
                ReferencedContainer = "container:PopularDisney.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2626C75A362AEF22E145AEA1"
-               BuildableName = "PopularDisneyKitTests.xctest"
-               BlueprintName = "PopularDisneyKitTests"
-               ReferencedContainer = "container:PopularDisney.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

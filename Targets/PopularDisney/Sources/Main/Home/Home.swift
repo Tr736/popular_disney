@@ -10,7 +10,7 @@ struct Home<ViewModel: HomeViewModelType>: View {
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
         Task {
-           await viewModel.fetchCharacters()
+            await viewModel.fetchCharacters()
         }
     }
 
