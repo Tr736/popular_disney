@@ -52,6 +52,7 @@ final class HomeDataProvider: HomeDataProviderType {
             })
     }
 
+    // TODO: Test to ensure the cache here is working as expected
     private func saveToCache(_ characters: [CharactersResponse.Data]) throws {
         cache.removeValue(forKey: Constants.cacheKey)
         cache.insert(characters, forKey: Constants.cacheKey)

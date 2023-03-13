@@ -25,6 +25,7 @@
 		531E91BC5A7960832B10BF96 /* PopularDisneyUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F74E33E84A38CD46D33CE3D9 /* PopularDisneyUI.framework */; };
 		70885DB7A256D4BBF0021E22 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F046D795E6B0FE20DB654282 /* User.swift */; };
 		7646E01A04ACA32055277E36 /* PopularDisneyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BEC21E7654A18498621DA63 /* PopularDisneyKit.framework */; };
+		78DF754429BF506100537F08 /* MockUrlSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DF754329BF506100537F08 /* MockUrlSession.swift */; };
 		79A89442E2FB3218628C99E3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD932C0201141C6DCDA1EDE9 /* API.swift */; };
 		7B8A6D8B5009F55032095A9A /* Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B169EDF837828FF54059095 /* Headers.swift */; };
 		7BB2AB336B71AFAB0142346F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 487E8549CC23998F1D55AF7E /* Assets.xcassets */; };
@@ -183,6 +184,7 @@
 		5BEC21E7654A18498621DA63 /* PopularDisneyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PopularDisneyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B69F9D5A840655CCB35285F /* APIRequestEmptyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestEmptyObject.swift; sourceTree = "<group>"; };
 		74C8FE15378EF3327A22997D /* TestResponseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResponseObject.swift; sourceTree = "<group>"; };
+		78DF754329BF506100537F08 /* MockUrlSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUrlSession.swift; sourceTree = "<group>"; };
 		79E786875E9F08FF04DB4365 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		7B6A9078440ADD90404D6D8D /* NukeUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NukeUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA720F1CA4FF17C3EC8C4FA /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -602,6 +604,7 @@
 			children = (
 				14FBED57C41CFDBB0120320F /* ConcreteAPI.swift */,
 				79E786875E9F08FF04DB4365 /* Endpoints.swift */,
+				78DF754329BF506100537F08 /* MockUrlSession.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -884,6 +887,7 @@
 				7E3313A0907BA5A6342555BB /* TuistAssets+PopularDisney.swift in Sources */,
 				2FE82F9FBC5095ACA36680D0 /* TuistBundle+PopularDisney.swift in Sources */,
 				154DC9F63EEBC1C35829D272 /* Home.swift in Sources */,
+				78DF754429BF506100537F08 /* MockUrlSession.swift in Sources */,
 				2ED6D080475EF6EDD535F6F2 /* HomeViewModel.swift in Sources */,
 				A29C5255B948897896F3E33A /* CharactersRequest.swift in Sources */,
 				D7DDF5D7CCC1137B33DFF68B /* CharactersResponse.swift in Sources */,

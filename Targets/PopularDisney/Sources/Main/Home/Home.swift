@@ -32,8 +32,14 @@ struct Home<ViewModel: HomeViewModelType>: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home(viewModel: HomeViewModel(
-            dataProvider: HomeDataProvider()
-        ))
+        Home(viewModel:
+                HomeViewModel(
+                    dataProvider:
+                        HomeDataProvider(api:
+                                            ConcreteAPI(urlSession:
+                                                            MockUrlSession())
+                                        )
+                )
+        )
     }
 }
