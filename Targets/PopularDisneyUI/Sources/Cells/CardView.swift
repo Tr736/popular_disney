@@ -16,8 +16,7 @@ public struct CardView: View {
 
     public init(name: String,
                 popularity: Int,
-                imageURL: URL)
-    {
+                imageURL: URL) {
         self.name = name
         self.popularity = popularity
         self.imageURL = imageURL
@@ -26,41 +25,43 @@ public struct CardView: View {
     public var body: some View {
         ZStack(alignment: .bottomLeading,
                content: {
-                   LazyImage(url: imageURL) { state in
-                       if let image = state.image {
-                           image.resizable()
-                               .aspectRatio(contentMode: .fit)
-                               .modifier(CardModifier())
-                       } else {
-                           Color.gray
-                               .frame(width: Constants.frame,
-                                      height: Constants.frame)
-                               .modifier(CardModifier())
-                       }
-                   }
+            LazyImage(url: imageURL) { state in
+                if let image = state.image {
+                    image.resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .styleAsCard()
+                } else {
+                    Color.gray
+                        .frame(width: Constants.frame,
+                               height: Constants.frame)
+                        .styleAsCard()
+                }
+            }
 
-                   VStack(alignment: .leading,
-                          spacing: Constants.spacing,
-                          content: {
-                              Text("Name: " + name)
-                                  .multilineTextAlignment(.leading)
-                              Text("Popularity: \(popularity)")
-                                  .multilineTextAlignment(.leading)
-                          })
-                          .padding(EdgeInsets(top: Constants.padding,
-                                              leading: Constants.padding,
-                                              bottom: Constants.padding,
-                                              trailing: Constants.paddingTrailing))
-                          .background(.ultraThinMaterial)
-                          .cornerRadius(Constants.cornerRadius)
-               })
+            VStack(alignment: .leading,
+                   spacing: Constants.spacing,
+                   content: {
+                Text("Name: " + name)
+                    .multilineTextAlignment(.leading)
+                Text("Popularity: \(popularity)")
+                    .multilineTextAlignment(.leading)
+            })
+            .padding(EdgeInsets(top: Constants.padding,
+                                leading: Constants.padding,
+                                bottom: Constants.padding,
+                                trailing: Constants.paddingTrailing))
+            .background(.ultraThinMaterial)
+            .cornerRadius(Constants.cornerRadius)
+        })
     }
 }
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(name: "Thomas",
-                 popularity: 1,
-                 imageURL: URL(string: "https://freesvg.org/img/Placeholder.png")!)
+        CardView(
+            name: "Thomas",
+            popularity: 1,
+            imageURL: URL(string: "https://freesvg.org/img/Placeholder.png")!
+        )
     }
 }

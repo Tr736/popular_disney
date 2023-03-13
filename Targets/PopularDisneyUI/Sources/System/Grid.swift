@@ -11,7 +11,6 @@ public enum Grid {
     public static let x7: CGFloat = x1 * 7
     public static let x8: CGFloat = x1 * 8
     public static let x9: CGFloat = x1 * 9
-
     public static let x10: CGFloat = x1 * 10
     public static let x20: CGFloat = x1 * 20
     public static let x30: CGFloat = x1 * 30

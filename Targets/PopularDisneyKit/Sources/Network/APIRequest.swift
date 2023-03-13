@@ -1,4 +1,5 @@
 import Foundation
+
 public protocol APIRequest {
     associatedtype ResponseBody: Decodable
 

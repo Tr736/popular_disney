@@ -23,7 +23,7 @@ final class GridTest: XCTestCase {
         static let hundredX: CGFloat = 400
     }
 
-    func test_GridValuesAreCorrect() {
+    func test_grid_valuesAreCorrect() {
         XCTAssertEqual(Constants.halfX, Grid.xhalf)
         XCTAssertEqual(Constants.oneX, Grid.x1)
         XCTAssertEqual(Constants.twoX, Grid.x2)

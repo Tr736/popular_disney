@@ -3,16 +3,16 @@ import Foundation
 @testable import PopularDisney
 
 final class HomeDataProviderMock: HomeDataProviderType {
-    var charactersPublisher: Published<[PopularDisney.CharactersResponse.CharactersData]>.Publisher {
+    var charactersPublisher: Published<[CharactersResponse.Data]>.Publisher {
         $fetchedCharacters
     }
 
-    @Published var fetchedCharacters: [PopularDisney.CharactersResponse.CharactersData] = []
+    @Published var fetchedCharacters: [CharactersResponse.Data] = []
 
     // used to inject default values for testing
-    var characters: [PopularDisney.CharactersResponse.CharactersData]
+    private var characters: [CharactersResponse.Data]
 
-    init(characters: [PopularDisney.CharactersResponse.CharactersData]) {
+    init(characters: [CharactersResponse.Data]) {
         self.characters = characters
     }
 

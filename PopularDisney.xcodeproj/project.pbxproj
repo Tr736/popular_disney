@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,7 +38,6 @@
 		9E3CD5A15C91E57D5DB42DA8 /* PopularDisneyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BEC21E7654A18498621DA63 /* PopularDisneyKit.framework */; };
 		A29C5255B948897896F3E33A /* CharactersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6812386DE83D1BFA1735393 /* CharactersRequest.swift */; };
 		A3B3F28AD0F5C8745DA5BB2B /* PopularDisneyKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5BEC21E7654A18498621DA63 /* PopularDisneyKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A5EA4CC51CF11BBA8993FFB1 /* Cache+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9668E4BD12E740447C57BB /* Cache+.swift */; };
 		AB3ACDBBFBA3E6BD3A6004EC /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEB04D62F233E921F28BDCE /* Nuke.framework */; platformFilter = ios; };
 		B056CE4E7C657BD56670A9DE /* URLSessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40676184C8FFAA1275355EBB /* URLSessionType.swift */; };
 		B0A5A7CEEA4E96382FBDD0BC /* APIRequestEmptyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69F9D5A840655CCB35285F /* APIRequestEmptyObject.swift */; };
@@ -55,7 +54,6 @@
 		E3957974711E583D0238CAA3 /* NukeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B6A9078440ADD90404D6D8D /* NukeUI.framework */; platformFilter = ios; };
 		ECC9EA0C52917EF94546EE8F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA720F1CA4FF17C3EC8C4FA /* CardView.swift */; };
 		EE679FDDEAE78A11ED8C534D /* ConcreteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FBED57C41CFDBB0120320F /* ConcreteAPI.swift */; };
-		F99B8A92B95D68465F6D0E11 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B3931D093F21C2B4A5627F /* APIError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,7 +187,6 @@
 		7B6A9078440ADD90404D6D8D /* NukeUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NukeUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA720F1CA4FF17C3EC8C4FA /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		91B391721D5C1137C0A66215 /* PopularDisneyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PopularDisneyTests-Info.plist"; sourceTree = "<group>"; };
-		95B3931D093F21C2B4A5627F /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		96A510216D732412C2236D23 /* ConcreteAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcreteAPITests.swift; sourceTree = "<group>"; };
 		98EBDA3328DF91532FE19F6A /* XCTestCase+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
 		9C6A07278D9255913CCC7E5F /* URLSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+.swift"; sourceTree = "<group>"; };
@@ -210,7 +207,6 @@
 		DDBA045E28A172B52B372B97 /* MockAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPI.swift; sourceTree = "<group>"; };
 		E917B7F2DF431A3321BBB957 /* HomeDataProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataProviderMock.swift; sourceTree = "<group>"; };
 		EBD75B55FBB70C1B0FEB9774 /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
-		EF9668E4BD12E740447C57BB /* Cache+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cache+.swift"; sourceTree = "<group>"; };
 		F046D795E6B0FE20DB654282 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F74E33E84A38CD46D33CE3D9 /* PopularDisneyUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PopularDisneyUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F85F6751FB8FF3334D459253 /* PopularDisney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopularDisney.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,7 +314,6 @@
 		2DF0E63C9D160FE0D25F9A1A /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				95B3931D093F21C2B4A5627F /* APIError.swift */,
 				5B169EDF837828FF54059095 /* Headers.swift */,
 				AF86DB96EA7D19836E1F69ED /* RequestMethod.swift */,
 			);
@@ -329,7 +324,6 @@
 			isa = PBXGroup;
 			children = (
 				FB77CAC3901644DC48CE1A25 /* Cells */,
-				5C4EFEDBC87E91AE9FE025DB /* Modifiers */,
 				D9CCDADFE80A801EE0BD98CC /* System */,
 			);
 			path = Sources;
@@ -407,7 +401,6 @@
 			isa = PBXGroup;
 			children = (
 				D564BEA4CB8370D0101DB523 /* Cache.swift */,
-				EF9668E4BD12E740447C57BB /* Cache+.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -637,6 +630,7 @@
 		FB77CAC3901644DC48CE1A25 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5C4EFEDBC87E91AE9FE025DB /* Modifiers */,
 				8AA720F1CA4FF17C3EC8C4FA /* CardView.swift */,
 			);
 			path = Cells;
@@ -873,11 +867,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5EA4CC51CF11BBA8993FFB1 /* Cache+.swift in Sources */,
 				8478EC05F3ACA7764A40DCDF /* Cache.swift in Sources */,
 				79A89442E2FB3218628C99E3 /* API.swift in Sources */,
 				7F2A110243C854D80CBDA671 /* APIRequest.swift in Sources */,
-				F99B8A92B95D68465F6D0E11 /* APIError.swift in Sources */,
 				7B8A6D8B5009F55032095A9A /* Headers.swift in Sources */,
 				0D3F6FA32227B296409F3D4C /* RequestMethod.swift in Sources */,
 				036067A5BDC4D0B05C465D6E /* URLSession+.swift in Sources */,

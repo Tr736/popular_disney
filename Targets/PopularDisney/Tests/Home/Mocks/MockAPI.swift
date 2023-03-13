@@ -1,7 +1,11 @@
-import Combine
 import Foundation
 import PopularDisneyKit
+
 struct MockAPI: APIType {
+    private enum ErrorHandler: Error {
+        case invalidURL(urlString: String)
+    }
+
     let session: MockUrlSession
 
     init(data: Data, statusCode: Int) {
@@ -10,6 +14,7 @@ struct MockAPI: APIType {
     }
 
     let baseURL = URL(string: "https://www.apple.com")
+    
     func execute<T>(apiRequest: T) async throws -> T.ResponseBody where T: PopularDisneyKit.APIRequest {
         let data = try await executeRaw(apiRequest: apiRequest).data
         let decoded: T.ResponseBody = try decode(from: data)
@@ -17,12 +22,15 @@ struct MockAPI: APIType {
     }
 
     func executeRaw<T>(apiRequest: T) async throws -> (data: Data, response: URLResponse) where T: PopularDisneyKit.APIRequest {
-        guard let url = try? buildUrl(for: apiRequest) else { throw APIError.invalidUrl(urlString: apiRequest.path) }
+        guard let url = try? buildUrl(for: apiRequest) else {
+            throw ErrorHandler.invalidURL(urlString: apiRequest.path)
+        }
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = apiRequest.method.rawValue
         urlRequest.setValue(Headers.contentTypeJson,
                             forHTTPHeaderField: Headers.contentType)
-        return try await session.data(request: urlRequest)
+        return try await session.data(for: urlRequest,
+                                      delegate: nil)
     }
 
     private func decode<T>(from data: Data) throws -> T where T: Decodable {
@@ -32,9 +40,8 @@ struct MockAPI: APIType {
 
     private func buildUrl<T: APIRequest>(for apiRequest: T) throws -> URL {
         guard let components = URLComponents(string: apiRequest.path),
-              let url = components.url(relativeTo: baseURL)
-        else {
-            throw APIError.invalidUrl(urlString: apiRequest.path)
+              let url = components.url(relativeTo: baseURL) else {
+            throw ErrorHandler.invalidURL(urlString: apiRequest.path)
         }
         return url
     }

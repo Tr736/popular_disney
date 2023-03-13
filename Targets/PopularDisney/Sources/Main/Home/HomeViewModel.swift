@@ -1,17 +1,16 @@
 import Combine
 import Foundation
 protocol HomeViewModelType: ObservableObject {
-    var itemsPublisher: Published<[CharactersResponse.CharactersData]>.Publisher { get }
+    var itemsPublisher: Published<[CharactersResponse.Data]>.Publisher { get }
 
     func fetchCharacters() async
-    func popularity(_ item: CharactersResponse.CharactersData) -> Int
+    func popularity(_ item: CharactersResponse.Data) -> Int
 }
 
 final class HomeViewModel: HomeViewModelType {
     private let dataProvider: HomeDataProviderType
-    private var cancellable = [AnyCancellable]()
 
-    var itemsPublisher: Published<[CharactersResponse.CharactersData]>.Publisher {
+    var itemsPublisher: Published<[CharactersResponse.Data]>.Publisher {
         dataProvider.charactersPublisher
     }
 
@@ -27,11 +26,11 @@ final class HomeViewModel: HomeViewModelType {
         }
     }
 
-    func popularity(_ item: CharactersResponse.CharactersData) -> Int {
+    func popularity(_ item: CharactersResponse.Data) -> Int {
         item.films
             .filter { !$0.isEmpty }
             .count +
-            item.parkAttractions
+        item.parkAttractions
             .filter { !$0.isEmpty }
             .count
     }

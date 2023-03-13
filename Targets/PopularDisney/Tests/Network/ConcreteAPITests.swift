@@ -25,41 +25,47 @@ final class ConcreteAPITests: XCTestCase {
         super.tearDown()
     }
 
-    func test_getRequest_expectResponseNotNil() async throws {
+    func test_expectResponse() async throws {
+        // Given
         let responseObject = APIRequestEmptyObject()
-        let json = try! JSONEncoder().encode(responseObject)
+        let json = try JSONEncoder().encode(responseObject)
         mockURLSession = MockUrlSession(responseObject: json,
                                         responseStatusCode: Constants.responseStatusCode)
         sut = ConcreteAPI(baseURL: baseURL,
                           urlSession: mockURLSession)
-
         let request = GetRequest()
         do {
+            // When
             let response = try await sut.execute(apiRequest: request)
+            // Then
             XCTAssertNotNil(response)
         } catch {
             XCTFail(String(describing: error))
         }
     }
 
-    func test_GetRequest_IsDecodable() async throws {
+    func test_IsDecodable_expectAgeAndName() async throws {
+        // Given
         let responseObject = TestResponseObject(name: Constants.name,
                                                 age: Constants.age)
-        let json = try! JSONEncoder().encode(responseObject)
+        let json = try JSONEncoder().encode(responseObject)
         mockURLSession = MockUrlSession(responseObject: json,
                                         responseStatusCode: Constants.responseStatusCode)
         sut = ConcreteAPI(baseURL: baseURL,
                           urlSession: mockURLSession)
 
         let request = GetRequestWithObject()
+        // When
         decodedData = try await sut.execute(apiRequest: request)
+        // Then
         XCTAssertEqual(decodedData?.age, Constants.age)
         XCTAssertEqual(decodedData?.name, Constants.name)
     }
 
-    func test_GetRequest_failedToDecode() async throws {
+    func test_failedToDecode() async throws {
+        // Given
         let responseObject = APIRequestEmptyObject()
-        let json = try! JSONEncoder().encode(responseObject)
+        let json = try JSONEncoder().encode(responseObject)
         mockURLSession = MockUrlSession(responseObject: json,
                                         responseStatusCode: Constants.responseStatusCode)
         sut = ConcreteAPI(baseURL: baseURL,
@@ -67,8 +73,10 @@ final class ConcreteAPITests: XCTestCase {
 
         let request = GetRequestWithObject()
         do {
+            // When
             decodedData = try await sut.execute(apiRequest: request)
         } catch let DecodingError.keyNotFound(key, context) {
+            // Then
             XCTAssertNotNil(key)
             XCTAssertNotNil(context)
         }

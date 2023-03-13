@@ -33,10 +33,24 @@ public final class Cache<Key: Hashable, Value> {
         wrapped.removeObject(forKey: WrappedKey(key))
         keyTracker.keys.remove(key)
     }
-}
 
-private extension Cache {
-    func entry(forKey key: Key) -> Entry? {
+    public subscript(key: Key) -> Value? {
+        get { value(forKey: key) }
+        set {
+            guard let value = newValue else {
+                // If nil was assigned using our subscript,
+                // then we remove any value for that key:
+                removeValue(forKey: key)
+                return
+            }
+
+            insert(value, forKey: key)
+        }
+    }
+
+    // MARK: Private functions
+
+    private func entry(forKey key: Key) -> Entry? {
         guard let entry = wrapped.object(forKey: WrappedKey(key)) else {
             return nil
         }
@@ -44,9 +58,47 @@ private extension Cache {
         return entry
     }
 
-    func insert(_ entry: Entry) {
+    private func insert(_ entry: Entry) {
         wrapped.setObject(entry, forKey: WrappedKey(entry.key))
         keyTracker.keys.insert(entry.key)
+    }
+
+
+}
+// MARK: Name Spacing Classes
+extension Cache {
+    final class KeyTracker: NSObject, NSCacheDelegate {
+        var keys = Set<Key>()
+
+        func cache(_: NSCache<AnyObject, AnyObject>,
+                   willEvictObject object: Any) {
+            guard let entry = object as? Entry else { return }
+            keys.remove(entry.key)
+        }
+    }
+
+    final class Entry {
+        let value: Value
+        let key: Key
+
+        init(key: Key,
+             value: Value) {
+            self.value = value
+            self.key = key
+        }
+    }
+
+    final class WrappedKey: NSObject {
+        let key: Key
+
+        init(_ key: Key) { self.key = key }
+
+        override var hash: Int { return key.hashValue }
+
+        override func isEqual(_ object: Any?) -> Bool {
+            guard let value = object as? WrappedKey else { return false }
+            return value.key == key
+        }
     }
 }
 
@@ -65,8 +117,7 @@ extension Cache: Codable where Key: Codable, Value: Codable {
     }
 
     public func saveToDisk(withName name: String,
-                           using fileManager: FileManager = .default) throws
-    {
+                           using fileManager: FileManager = .default) throws {
         let folderURLs = fileManager.urls(
             for: .cachesDirectory,
             in: .userDomainMask
@@ -78,8 +129,7 @@ extension Cache: Codable where Key: Codable, Value: Codable {
     }
 
     public func fetchFromDisk(withName name: String,
-                              using fileManager: FileManager = .default) throws -> Data
-    {
+                              using fileManager: FileManager = .default) throws -> Data {
         let folderURLs = fileManager.urls(
             for: .cachesDirectory,
             in: .userDomainMask
@@ -89,3 +139,5 @@ extension Cache: Codable where Key: Codable, Value: Codable {
         return try Data(contentsOf: fileURL)
     }
 }
+// Conform to Entry to Codable to enable Encoder
+extension Cache.Entry: Codable where Key: Codable, Value: Codable {}
