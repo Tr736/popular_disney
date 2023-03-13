@@ -26,6 +26,21 @@ This will fetch the dependencies and generate the project.
 ### NOTE
 ### To build or run this project, Tuist installation is necessary.
 
+### Testing
+#### UI Tests
+The project currently only houses Unit tests. Given more time UITests would have been added.
+#### Unit Tests
+- Cache
+  The cache could be mocked to prevent writing to the disk. In its current state it could result in flakey tests.
+- HomeDataProvider
+  Given more time the HomeDataProvider should include cache tests. This task is dependent on the MockCache menioned above
+- CharactersResponse
+  Tests should be added to check for edge cases such as invalid URLS
+- CharactersRequest
+  To include tests to ensure the method, path and response are correctly set
+  
+### Previews
+Inject usable data in the MockURLSession (Home)
 
 ### UI
 
@@ -43,8 +58,18 @@ The project currently does not support accessibility. Adding accessibility featu
 
 The project currently does not support localization. Adding localization would make the app accessible to users in different regions and languages.
 
+### Other Improvements
+The list view should support pagination.
+Analytics
+Crashlytics
+
 ### Conclusion
 
-This README provides an overview of the popular disney project. It covers the architecture, how to install the project, and the current state of the UI, error handling, accessibility, and localization. There is room for improvement in these areas.
+This README provides an overview of the popular disney project. It covers the architecture, how to install the project, and the current state of the UI, error handling, accessibility, localization & testing. There is room for improvement in these areas and i would workd on this in the following priority:-
 
-https://meet.google.com/apk-jzzr-pfz
+1. Unit Tests
+2. UI Tests
+3. Error Handling
+4. Accessibility
+5. Localization
+
