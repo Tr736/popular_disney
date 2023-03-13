@@ -62,7 +62,7 @@ final class ConcreteAPITests: XCTestCase {
         XCTAssertEqual(decodedData?.name, Constants.name)
     }
 
-    func test_failedToDecode() async throws {
+    func test_failedToDecode_expectDecodingErrorThrown() async throws {
         // Given
         let responseObject = APIRequestEmptyObject()
         let json = try JSONEncoder().encode(responseObject)
@@ -75,6 +75,7 @@ final class ConcreteAPITests: XCTestCase {
         do {
             // When
             decodedData = try await sut.execute(apiRequest: request)
+            XCTAssertNil(decodedData)
         } catch let DecodingError.keyNotFound(key, context) {
             // Then
             XCTAssertNotNil(key)
